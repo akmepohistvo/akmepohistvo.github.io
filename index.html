@@ -468,10 +468,10 @@
       display:flex;
       flex-direction:column;
     }
-    .mobile-view .hero{ position:relative; width:100%; aspect-ratio:402 / 446; flex:0 0 auto; }
+    .mobile-view .hero{ position:relative; width:100%; flex:1 1 auto; min-height:0; }
     .mobile-view .hero-img{ width:100%; height:100%; object-fit:cover; display:block; }
     .mobile-view .hero-caption{
-      flex:1 1 auto;
+      flex:0 0 auto;
       display:flex;
       flex-direction:column;
       width:100%;
@@ -481,7 +481,7 @@
       width:100%;
       font-size:20px;
       line-height:1.35;
-      padding:28px var(--side) 0;
+      padding:28px var(--side) 40px;
     }
     .mobile-view .hero-tagline .grey1{ color:var(--grey1); }
     .mobile-view .hero-tagline .grey2{ color:var(--grey2); }
@@ -489,7 +489,7 @@
       display:block;
       width:calc(100% - 10px);
       height:auto;
-      margin:auto 5px 28px;
+      margin:0 5px max(16px, env(safe-area-inset-bottom));
     }
 
     .mobile-view .sec-numerals img{
@@ -530,8 +530,8 @@
       padding:88px var(--side) 32px;
     }
     .mobile-view .sec-title h2{
-      font-size:35px;
-      line-height:42px;
+      font-size:var(--fs-lg);
+      line-height:1.25;
       color:var(--grey1);
     }
     .mobile-view .sec-title h2 b{ color:var(--grey2); }
@@ -562,7 +562,7 @@
     .mobile-view .sec-footlist ul{ list-style:none; padding:32px var(--side) 0; }
     .mobile-view .sec-footlist li{
       font-size:20px;
-      line-height:52px;
+      line-height:40px;
       color:var(--grey1);
     }
     .mobile-view .sec-footlist li a{ display:inline-block; }
@@ -573,7 +573,7 @@
     .mobile-view .sec-final{
       width:100%;
       text-align:center;
-      padding:96px var(--side);
+      padding:128px var(--side);
     }
     .mobile-view .sec-final h2{
       font-size:var(--fs-lg);
@@ -586,7 +586,7 @@
     .mobile-view .sec-final-footer{
       width:100%;
       text-align:center;
-      padding:0 var(--side) 56px;
+      padding:0 var(--side) 24px;
       position:static;
     }
     .mobile-view .final-footer{
@@ -610,7 +610,7 @@
     <div class="topbar-left">
       <div class="status-row-1">
         <span class="availability-label">Zasedenost:</span>
-        <div class="status-bar" role="img" aria-label="Trenutna zasedenost 70 odstotkov">
+        <div class="status-bar" role="img" aria-label="Trenutna zasedenost 40 odstotkov">
           <div class="status-bar-fill" id="statusFill"></div>
         </div>
         <span class="status-percent" id="statusPercent" aria-hidden="true">0%</span>
@@ -723,7 +723,7 @@
     <div class="hero-wrap">
       <article class="hero">
         <img class="hero-img" src="mizarska-izdelava-pohistvo-po-meri-mobilna.webp" alt="Detajl mizarske izdelave pohištva po meri, AKMĒ delavnica" loading="eager" fetchpriority="high">
-        <div class="status-bar" role="img" aria-label="Trenutna zasedenost 70 odstotkov, čas čakanja manj kot 10 dni">
+        <div class="status-bar" role="img" aria-label="Trenutna zasedenost 40 odstotkov, čas čakanja manj kot 10 dni">
           <div class="status-bar-fill" id="statusFillMobile">
             <span class="status-percent"><span id="statusPercentMobile">0%</span> zasedenost</span>
           </div>
@@ -808,7 +808,7 @@
 
 <script>
   window.addEventListener('load', () => {
-    const target = 70;
+    const target = 40;
     const duration = 1400;
     const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
 
