@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AKMĒ — Pohištvo po meri | Arhitekturna zasnova & mizarska izdelava, Ljubljana</title>
+<meta name="description" content="AKMĒ, ljubljanska delavnica (atelje) za pohištvo po meri: arhitekt zasnuje glede na prostor, mizar izdela. Kuhinje, kopalnice, spalnice, omare. Brezplačen prvi posvet.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.akme.eu/">
+<link rel="icon" type="image/png" href="Favicon.png">
+<link rel="apple-touch-icon" href="Favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="AKMĒ — Pohištvo po meri, Ljubljana">
+<meta property="og:description" content="Delavnica (atelje) za pohištvo po meri: arhitekt zasnuje glede na prostor, mizar izdela. Kuhinje, kopalnice, spalnice, omare. Prvi posvet brezplačen.">
+<meta property="og:url" content="https://www.akme.eu/">
+<meta property="og:locale" content="sl_SI">
+<meta property="og:site_name" content="AKMĒ">
+<meta property="og:image" content="https://www.akme.eu/akme-pohistvo-po-meri-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AKMĒ — Pohištvo po meri, Ljubljana">
+<meta name="twitter:description" content="Delavnica (atelje) za pohištvo po meri v Ljubljani — arhitekt zasnuje glede na prostor, mizar izdela.">
+<meta name="twitter:image" content="https://www.akme.eu/akme-pohistvo-po-meri-preview.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.akme.eu/#website",
+      "url": "https://www.akme.eu",
+      "name": "AKMĒ",
+      "inLanguage": "sl-SI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.akme.eu/",
+      "url": "https://www.akme.eu/",
+      "name": "AKMĒ — Pohištvo po meri | Arhitekturna zasnova & mizarska izdelava, Ljubljana",
+      "inLanguage": "sl-SI",
+      "datePublished": "2026-07-30",
+      "dateModified": "2026-07-30",
+      "isPartOf": { "@id": "https://www.akme.eu/#website" },
+      "about": { "@id": "https://www.akme.eu/#organization" }
+    },
+    {
+      "@type": "FurnitureStore",
+      "@id": "https://www.akme.eu/#organization",
+      "name": "AKMĒ",
+      "description": "AKMĒ je ljubljanska delavnica, oziroma atelje, za pohištvo po meri: arhitekt zasnuje kos glede na prostor, mizar ga izdela v lastni delavnici. Kuhinje, kopalniško pohištvo, spalnice, dnevne sobe, omare, mize in stoli po meri.",
+      "url": "https://www.akme.eu",
+      "email": "akme-pomeri@outlook.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ljubljana",
+        "addressCountry": "SI"
+      },
+      "areaServed": "Slovenia",
+      "sameAs": ["https://www.instagram.com/akme_pohistvo/"]
+    }
+  ]
+}
+</script>
+
+<style>
+
+  :root{
+    --bg:#FBFBFB;
+    --black:#161616;
+    --green:#18CE77;
+    --grey1:#A5A5A5;
+    --grey2:#606060;
+    --col:57.5%;
+
+    /* the ONLY three text sizes on the site — fixed px, never scale with viewport */
+    --fs-sm:14px;
+    --fs-md:28px;
+    --fs-lg:60px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; letter-spacing:-0.03em; }
+
+  html{
+    font-size:0.9259vw; /* 16px @ 1728px board width — scales LAYOUT (rem) only, not text (px) */
+    background:var(--bg);
+  }
+
+  body{
+    font-family:'Manrope', sans-serif;
+    font-weight:300;
+    color:var(--black);
+    background:var(--bg);
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,h4,h5,h6,button,b,strong{
+    font-weight:300;
+  }
+
+  a{ text-decoration:none; color:inherit; }
+  picture{ display:contents; }
+
+  .sr-only{
+    position:absolute; width:1px; height:1px;
+    padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  /* ===================== TOP BAR (fixed) — everything 20px ===================== */
+
+  .topbar-left{
+    position:fixed;
+    top:1.875rem;
+    left:1.875rem;
+    z-index:100;
+  }
+
+  .status-row-1{
+    display:flex;
+    align-items:center;
+    gap:0.9375rem;
+    margin-bottom:0.5rem;
+  }
+
+  .availability-label,
+  .status-percent,
+  .wait-time{
+    font-size:var(--fs-sm);
+    color:var(--black);
+  }
+  .wait-time .dots span{
+    display:inline-block;
+    opacity:.25;
+    animation:dot-blink 1.2s infinite steps(1);
+  }
+  .wait-time .dots span:nth-child(2){ animation-delay:.2s; }
+  .wait-time .dots span:nth-child(3){ animation-delay:.4s; }
+  @keyframes dot-blink{
+    0%, 20%{ opacity:1; }
+    21%, 100%{ opacity:.25; }
+  }
+
+  .status-bar{
+    width:15rem;
+    height:0.875rem;
+    background:var(--black);
+    border-radius:0;
+    overflow:hidden;
+  }
+  .status-bar-fill{
+    height:100%;
+    width:0%;
+    background:var(--green);
+    box-shadow:0 0 6px 1px rgba(24,206,119,.45);
+  }
+
+  .cta-button{
+    appearance:none;
+    -webkit-appearance:none;
+    position:fixed;
+    top:1.875rem;
+    left:var(--col);
+    width:180px;
+    height:40px;
+    background:var(--black);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:var(--fs-sm);
+    font-family:inherit;
+    border:1.5px solid var(--black);
+    cursor:pointer;
+    transition:all .25s ease;
+    z-index:100;
+  }
+  .cta-button:hover{
+    background:transparent;
+    color:var(--black);
+  }
+
+  .info-link{
+    position:fixed;
+    top:1.875rem;
+    right:1.875rem;
+    font-size:var(--fs-sm);
+    color:var(--black);
+    transition:color .2s ease;
+    z-index:100;
+  }
+  .info-link:hover{ color:var(--black); }
+
+  /* ===================== HERO ===================== */
+
+  .hero-wrap{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .hero{
+    position:relative;
+    width:100%;
+    aspect-ratio:1728 / 600;
+    flex:0 0 auto;
+  }
+  .hero-img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  .hero-caption{
+    flex:1 1 auto;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    padding:1.875rem 0 30px;
+  }
+
+  .hero-location{
+    margin-left:var(--col);
+    font-size:var(--fs-sm);
+    color:var(--grey1);
+  }
+
+  .hero-bottom{
+    display:flex;
+    align-items:flex-end;
+    margin-top:auto;
+  }
+
+  .hero-logo-col{
+    width:var(--col);
+    padding-left:1.875rem;
+  }
+
+  .hero-logo{
+    display:block;
+    width:375px;
+    height:120px;
+    object-fit:contain;
+    object-position:left bottom;
+  }
+
+  .hero-text{
+    width:calc(100% - var(--col));
+    font-size:var(--fs-md);
+    line-height:40px;
+  }
+  .hero-text .grey1{ color:var(--grey1); }
+  .hero-text .grey2{ color:var(--grey2); }
+
+  /* ===================== SECTION SPACING ===================== */
+
+  section, article{ position:relative; width:100%; }
+  .gap{ height:3.75rem; }
+
+  /* ===================== SECTION 2 — numerals left / image right, flush to edge ===================== */
+
+  .sec-numerals{ display:flex; width:100%; }
+  .sec-numerals .left{
+    width:var(--col);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:4rem;
+  }
+  .sec-numerals .left ul{ list-style:none; }
+  .sec-numerals .left li{
+    color:var(--grey1);
+    transition:color .2s ease;
+  }
+  .sec-numerals .left li h3{
+    font-size:var(--fs-md);
+    line-height:40px;
+    transition:color .2s ease;
+  }
+  .sec-numerals .left li h3 .num{ color:var(--grey2); transition:color .2s ease; }
+  .sec-numerals .left li:hover,
+  .sec-numerals .left li:hover h3,
+  .sec-numerals .left li:hover h3 .num{ color:var(--black); }
+  .sec-numerals .right{ width:calc(100% - var(--col)); }
+  .sec-numerals .right .img{
+    width:100%;
+    aspect-ratio:686 / 893;
+    object-fit:cover;
+    display:block;
+  }
+
+  /* ===================== SECTION 3 — image left flush / list right ===================== */
+
+  .sec-list{ display:flex; width:100%; }
+  .sec-list .left{
+    width:var(--col);
+    display:flex;
+    align-items:center;
+  }
+  .sec-list .left .img{
+    width:100%;
+    height:calc(42.5vw * 893 / 686);
+    object-fit:cover;
+    display:block;
+  }
+  .sec-list .right{
+    width:calc(100% - var(--col));
+    display:flex;
+    align-items:center;
+    padding-left:1.875rem;
+  }
+  .sec-list .right ul{ list-style:none; }
+  .sec-list .right li{
+    font-size:var(--fs-md);
+    line-height:40px;
+    color:var(--grey1);
+    transition:color .2s ease;
+  }
+  .sec-list .right li b{ color:var(--grey2); transition:color .2s ease; }
+  .sec-list .right li:hover,
+  .sec-list .right li:hover b{ color:var(--black); }
+
+  /* ===================== SECTION 4 — centered CTA-ish title ===================== */
+
+  .sec-title{
+    width:100%;
+    text-align:center;
+    padding:300px 1.875rem;
+  }
+  .sec-title h2{
+    font-size:var(--fs-lg);
+    line-height:65px;
+    color:var(--grey1);
+    margin-bottom:3.75rem;
+  }
+  .sec-title h2 b{ color:var(--grey2); }
+  .sec-title p{
+    font-size:var(--fs-sm);
+    line-height:20px;
+    color:var(--grey1);
+  }
+  .sec-title p b{ color:var(--grey2); }
+  .sec-title p a{
+    color:var(--grey2);
+    transition:color .2s ease;
+  }
+  .sec-title p a:hover{ color:var(--black); }
+
+  /* ===================== SECTION 5 — footer list left / image right, flush; same rules as sections 2/3 ===================== */
+
+  .sec-footlist{ display:flex; width:100%; }
+  .sec-footlist .left{
+    width:var(--col);
+    display:flex;
+    align-items:flex-start;
+    padding-left:1.875rem;
+  }
+  .sec-footlist .left ul{ list-style:none; }
+  .sec-footlist .left li{
+    font-size:var(--fs-md);
+    line-height:40px;
+    color:var(--grey1);
+  }
+  .sec-footlist .left li a b{ color:var(--grey2); }
+  .sec-footlist .left li a:hover{ color:var(--black); }
+  .sec-footlist .left li a:hover b{ color:var(--black); }
+  .sec-footlist .right{ width:calc(100% - var(--col)); }
+  .sec-footlist .right .img{
+    width:100%;
+    aspect-ratio:686 / 893;
+    object-fit:cover;
+    display:block;
+  }
+
+  /* ===================== FINAL CTA + FOOTER ===================== */
+
+  .sec-final{
+    width:100%;
+    padding:240px 1.875rem;
+    text-align:center;
+  }
+  .sec-final h2{
+    font-size:var(--fs-lg);
+    line-height:65px;
+    color:var(--grey1);
+  }
+  .sec-final h2 a{ color:var(--grey2); transition:color .2s ease; }
+  .sec-final h2 a:hover{ color:var(--black); }
+
+  .sec-final-footer{ position:relative; width:100%; }
+  .final-footer{
+    position:absolute;
+    bottom:1.875rem;
+    left:1.875rem;
+    font-size:var(--fs-sm);
+    font-style:normal;
+    color:var(--grey2);
+  }
+  .final-footer b{ color:var(--black); }
+  .final-footer.right{ left:var(--col); }
+
+  /* ===================== MOBILE VERSION (below 760px) ===================== */
+
+  .mobile-view{ display:none; }
+
+  @media (max-width:760px){
+    .desktop-view{ display:none; }
+    .mobile-view{
+      display:block;
+      --fs-sm:14px;
+      --fs-md:18px;
+      --fs-lg:30px;
+      --side:24px;
+    }
+    .mobile-view, .mobile-view *{ letter-spacing:-0.01em; }
+    .mobile-view section, .mobile-view article{ position:static; width:100%; }
+    .mobile-view .sec-numerals,
+    .mobile-view .sec-list,
+    .mobile-view .sec-footlist{ display:block; }
+
+    .mobile-view .status-bar{
+      position:absolute;
+      top:calc(50px + env(safe-area-inset-top));
+      left:10px;
+      right:10px;
+      width:auto;
+      height:30px;
+      background:var(--black);
+      border-radius:999px;
+      overflow:hidden;
+      z-index:2;
+    }
+    .mobile-view .status-bar-fill{
+      position:absolute;
+      left:0; top:0;
+      height:100%;
+      width:0%;
+      background:var(--green);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .mobile-view .status-bar-remainder{
+      position:absolute;
+      top:0; right:0;
+      left:0%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .mobile-view .status-percent{
+      font-size:14px;
+      color:var(--black);
+      white-space:nowrap;
+    }
+    .mobile-view .wait-time{ font-size:14px; color:#fff; white-space:nowrap; }
+
+    .mobile-view .gap{ height:88px; }
+
+    .mobile-view .hero-wrap{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    .mobile-view .hero{ position:relative; width:100%; aspect-ratio:402 / 446; flex:0 0 auto; }
+    .mobile-view .hero-img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .mobile-view .hero-caption{
+      flex:1 1 auto;
+      display:flex;
+      flex-direction:column;
+      width:100%;
+      text-align:center;
+    }
+    .mobile-view .hero-tagline{
+      width:100%;
+      font-size:20px;
+      line-height:1.35;
+      padding:28px var(--side) 0;
+    }
+    .mobile-view .hero-tagline .grey1{ color:var(--grey1); }
+    .mobile-view .hero-tagline .grey2{ color:var(--grey2); }
+    .mobile-view .akme-logo{
+      display:block;
+      width:calc(100% - 10px);
+      height:auto;
+      margin:auto 5px 28px;
+    }
+
+    .mobile-view .sec-numerals img{
+      width:100%;
+      aspect-ratio:4 / 5;
+      object-fit:cover;
+      display:block;
+    }
+    .mobile-view .sec-numerals .proces-text{
+      padding:32px var(--side) 0;
+      text-align:center;
+      color:var(--grey1);
+      font-size:var(--fs-md);
+      line-height:28px;
+      font-weight:300;
+    }
+    .mobile-view .sec-numerals .proces-text .num{ color:var(--grey2); }
+
+    .mobile-view .sec-list img{
+      width:100%;
+      aspect-ratio:4 / 5;
+      object-fit:cover;
+      display:block;
+    }
+    .mobile-view .sec-list .izkusnje-text{
+      padding:32px var(--side) 0 0;
+      text-align:right;
+      color:var(--grey1);
+      font-size:var(--fs-md);
+      line-height:28px;
+      font-weight:300;
+    }
+    .mobile-view .sec-list .izkusnje-text b{ color:var(--grey2); }
+
+    .mobile-view .sec-title{
+      width:100%;
+      text-align:left;
+      padding:88px var(--side) 32px;
+    }
+    .mobile-view .sec-title h2{
+      font-size:35px;
+      line-height:42px;
+      color:var(--grey1);
+    }
+    .mobile-view .sec-title h2 b{ color:var(--grey2); }
+
+    .mobile-view .sec-footlist{ text-align:center; }
+    .mobile-view .footlist-hero{ position:relative; }
+    .mobile-view .footlist-hero img{
+      width:100%;
+      aspect-ratio:4 / 5;
+      object-fit:cover;
+      display:block;
+    }
+    .mobile-view .rezervirajte-overlay{
+      position:absolute;
+      top:24px;
+      left:0;
+      right:0;
+      padding:0 var(--side);
+      text-align:left;
+      font-size:20px;
+      line-height:20px;
+      color:#fff;
+      text-shadow:0 0 6px rgba(0,0,0,.6);
+    }
+    .mobile-view .rezervirajte-overlay b{ color:#fff; }
+    .mobile-view .rezervirajte-overlay a{ display:inline-block; padding:10px 0; color:#fff; }
+    .mobile-view .rezervirajte-overlay a:active{ opacity:.7; }
+    .mobile-view .sec-footlist ul{ list-style:none; padding:32px var(--side) 0; }
+    .mobile-view .sec-footlist li{
+      font-size:20px;
+      line-height:52px;
+      color:var(--grey1);
+    }
+    .mobile-view .sec-footlist li a{ display:inline-block; }
+    .mobile-view .sec-footlist li a b{ color:var(--grey2); }
+    .mobile-view .sec-footlist li a:active{ color:var(--black); }
+    .mobile-view .sec-footlist li a:active b{ color:var(--black); }
+
+    .mobile-view .sec-final{
+      width:100%;
+      text-align:center;
+      padding:96px var(--side);
+    }
+    .mobile-view .sec-final h2{
+      font-size:var(--fs-lg);
+      line-height:1.25;
+      color:var(--grey1);
+    }
+    .mobile-view .sec-final h2 a{ color:var(--grey2); }
+    .mobile-view .sec-final h2 a:active{ color:var(--black); }
+
+    .mobile-view .sec-final-footer{
+      width:100%;
+      text-align:center;
+      padding:0 var(--side) 56px;
+      position:static;
+    }
+    .mobile-view .final-footer{
+      position:static;
+      display:block;
+      font-size:var(--fs-sm);
+      font-style:normal;
+      color:var(--grey2);
+    }
+    .mobile-view .final-footer + .final-footer{ margin-top:14px; }
+    .mobile-view .final-footer b{ color:var(--black); }
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="desktop-view">
+
+  <header>
+    <div class="topbar-left">
+      <div class="status-row-1">
+        <span class="availability-label">Zasedenost:</span>
+        <div class="status-bar" role="img" aria-label="Trenutna zasedenost 70 odstotkov">
+          <div class="status-bar-fill" id="statusFill"></div>
+        </div>
+        <span class="status-percent" id="statusPercent" aria-hidden="true">0%</span>
+      </div>
+      <p class="wait-time">Čas čakanja: &lt; 10 dni<span class="dots" aria-hidden="true"><span>.</span><span>.</span><span>.</span></span></p>
+    </div>
+
+    <nav aria-label="Glavna navigacija">
+      <a href="mailto:akme-pomeri@outlook.com" class="cta-button" aria-label="Ustvarimo pohištvo po meri — kontaktirajte nas po e-pošti">Ustvarimo po meri +</a>
+      <a href="informacije.html" class="info-link" aria-label="Več informacij o AKMĒ">Informacije</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="hero-wrap">
+      <article class="hero">
+        <img class="hero-img" src="mizarska-izdelava-pohistvo-po-meri.webp" alt="Detajl mizarske izdelave pohištva po meri, AKMĒ delavnica" loading="eager" fetchpriority="high">
+      </article>
+
+      <div class="hero-caption">
+        <p class="hero-location">Ljubljana, Slovenia</p>
+        <div class="hero-bottom">
+          <div class="hero-logo-col">
+            <img class="hero-logo" src="akme-logo.webp" alt="AKMĒ logotip">
+          </div>
+          <h1 class="hero-text">
+            <span class="grey1">Mizarska natančnost<br>
+            Arhitekturna zasnova</span><br>
+            <span class="grey2">Pohištvo po meri.</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <article class="sec-numerals" aria-labelledby="proces-heading">
+      <div class="left">
+        <h2 id="proces-heading" class="sr-only">Naš proces izdelave pohištva po meri</h2>
+        <ul>
+          <li><h3><span class="num">I</span> Arhitekturni ogled vašega prostora</h3></li>
+          <li><h3><span class="num">II</span> Zasnova pohištva po meri</h3></li>
+          <li><h3><span class="num">III</span> Precizna izdelava in montaža</h3></li>
+        </ul>
+      </div>
+      <div class="right">
+        <img class="img" src="arhitekturna-zasnova-pohistvo-po-meri.webp" alt="Arhitekturna zasnova pohištva po meri — tehnična skica" loading="lazy">
+      </div>
+    </article>
+
+    <div class="gap"></div>
+
+    <article class="sec-list" aria-labelledby="izkusnje-heading">
+      <div class="left">
+        <img class="img" src="kuhinja-po-meri-slovenski-les.webp" alt="Kuhinja po meri iz slovenskega lesa, izdelava AKMĒ" loading="lazy">
+      </div>
+      <div class="right">
+        <h2 id="izkusnje-heading" class="sr-only">Izkušnje in kakovost izdelave</h2>
+        <ul>
+          <li><b>50+</b> montiranih projektov</li>
+          <li><b>Ekipa</b> mizarjev in arhitektov</li>
+          <li><b>Posluh</b> za detajl</li>
+          <li><b>Slovenski</b> les</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="sec-title">
+      <h2>Celostno. Zato je<br>prvi posvet <b>brezplačen.</b></h2>
+      <p><a href="#kontakt" aria-label="Rezervirajte brezplačen posvet">Rezervirate ga tu +</a><b>.</b> Ponudba velja do 1. septembra 2026.</p>
+    </article>
+
+    <article class="sec-footlist" aria-labelledby="storitve-heading">
+      <div class="left">
+        <h2 id="storitve-heading" class="sr-only">Naše storitve</h2>
+        <ul>
+          <li><a href="informacije.html" aria-label="Kuhinje po meri — več informacij">Kuhinje po meri <b>+</b></a></li>
+          <li><a href="informacije.html" aria-label="Kopalniško pohištvo — več informacij">Kopalniško pohištvo <b>+</b></a></li>
+          <li><a href="informacije.html" aria-label="Spalnice po meri — več informacij">Spalnice po meri <b>+</b></a></li>
+          <li><a href="informacije.html" aria-label="Dnevne sobe — več informacij">Dnevne sobe <b>+</b></a></li>
+          <li><a href="informacije.html" aria-label="Omare po meri — več informacij">Omare <b>+</b></a></li>
+          <li><a href="informacije.html" aria-label="Mize in stoli — več informacij">Mize in stoli <b>+</b></a></li>
+        </ul>
+      </div>
+      <div class="right">
+        <img class="img" src="omara-po-meri-detajl-akme.webp" alt="Detajl omare po meri, les in kovinski ročaj, AKMĒ" loading="lazy">
+      </div>
+    </article>
+
+    <article class="sec-final" id="kontakt">
+      <h2>Ustvarimo po meri.<br><a href="mailto:akme-pomeri@outlook.com" aria-label="Kontaktirajte AKMĒ po e-pošti">Kontaktirajte nas +</a></h2>
+    </article>
+
+  </main>
+
+  <footer class="sec-final-footer">
+    <address class="final-footer">
+      Mail <a href="mailto:akme-pomeri@outlook.com"><b>akme-pomeri@outlook.com</b></a>
+    </address>
+    <p class="final-footer right">
+      Galerija na <a href="https://www.instagram.com/akme_pohistvo/" target="_blank" rel="noopener noreferrer"><b>@akme_pohistvo</b></a>
+    </p>
+  </footer>
+
+  </div>
+
+  <div class="mobile-view">
+
+  <main>
+
+    <div class="hero-wrap">
+      <article class="hero">
+        <img class="hero-img" src="mizarska-izdelava-pohistvo-po-meri-mobilna.webp" alt="Detajl mizarske izdelave pohištva po meri, AKMĒ delavnica" loading="eager" fetchpriority="high">
+        <div class="status-bar" role="img" aria-label="Trenutna zasedenost 70 odstotkov, čas čakanja manj kot 10 dni">
+          <div class="status-bar-fill" id="statusFillMobile">
+            <span class="status-percent"><span id="statusPercentMobile">0%</span> zasedenost</span>
+          </div>
+          <div class="status-bar-remainder" id="statusRemainderMobile">
+            <span class="wait-time">&lt;10 dni</span>
+          </div>
+        </div>
+      </article>
+
+      <div class="hero-caption">
+        <h1 class="hero-tagline">
+          <span class="grey1">Mizarska natančnost<br>
+          Arhitekturna zasnova</span><br>
+          <span class="grey2">Pohištvo po meri.</span>
+        </h1>
+        <img class="akme-logo" src="akme-logo.webp" alt="AKMĒ logotip">
+      </div>
+    </div>
+
+    <article class="sec-numerals" aria-labelledby="proces-heading-m">
+      <h2 id="proces-heading-m" class="sr-only">Naš proces izdelave pohištva po meri</h2>
+      <img src="arhitekturna-zasnova-pohistvo-po-meri.webp" alt="Arhitekturna zasnova pohištva po meri — tehnična skica" loading="lazy">
+      <p class="proces-text">
+        <span class="num">I</span> Arhitekturni ogled vašega prostora<br>
+        <span class="num">II</span> Zasnova pohištva po meri<br>
+        <span class="num">III</span> Precizna izdelava in montaža
+      </p>
+    </article>
+
+    <div class="gap"></div>
+
+    <article class="sec-list" aria-labelledby="izkusnje-heading-m">
+      <h2 id="izkusnje-heading-m" class="sr-only">Izkušnje in kakovost izdelave</h2>
+      <img src="kuhinja-po-meri-slovenski-les.webp" alt="Kuhinja po meri iz slovenskega lesa, izdelava AKMĒ" loading="lazy">
+      <p class="izkusnje-text">
+        <b>50+</b> montiranih projektov<br>
+        <b>Ekipa</b> mizarjev in arhitektov<br>
+        <b>Posluh</b> za detajl<br>
+        <b>Slovenski</b> les
+      </p>
+    </article>
+
+    <article class="sec-title">
+      <h2>Celostno. Zato je<br>prvi posvet <b>brezplačen.</b></h2>
+    </article>
+
+    <article class="sec-footlist" aria-labelledby="storitve-heading-m">
+      <h2 id="storitve-heading-m" class="sr-only">Naše storitve</h2>
+      <div class="footlist-hero">
+        <img src="omara-po-meri-detajl-akme.webp" alt="Detajl omare po meri, les in kovinski ročaj, AKMĒ" loading="lazy">
+        <p class="rezervirajte-overlay"><a href="#kontakt-m" aria-label="Rezervirajte brezplačen posvet">Rezervirate ga tu +</a><b>.</b><br>Do 1. septembra 2026.</p>
+      </div>
+      <ul>
+        <li><a href="informacije.html" aria-label="Kuhinje po meri — več informacij">Kuhinje po meri <b>+</b></a></li>
+        <li><a href="informacije.html" aria-label="Kopalniško pohištvo — več informacij">Kopalniško pohištvo <b>+</b></a></li>
+        <li><a href="informacije.html" aria-label="Spalnice po meri — več informacij">Spalnice po meri <b>+</b></a></li>
+        <li><a href="informacije.html" aria-label="Dnevne sobe — več informacij">Dnevne sobe <b>+</b></a></li>
+        <li><a href="informacije.html" aria-label="Omare po meri — več informacij">Omare <b>+</b></a></li>
+        <li><a href="informacije.html" aria-label="Mize in stoli — več informacij">Mize in stoli <b>+</b></a></li>
+      </ul>
+    </article>
+
+    <article class="sec-final" id="kontakt-m">
+      <h2>Ustvarimo po meri.<br><a href="mailto:akme-pomeri@outlook.com" aria-label="Kontaktirajte AKMĒ po e-pošti">Kontaktirajte nas +</a></h2>
+    </article>
+
+  </main>
+
+  <footer class="sec-final-footer">
+    <p class="final-footer">
+      <a href="informacije.html">Informacije <b>+</b></a>
+    </p>
+    <address class="final-footer">
+      Mail <a href="mailto:akme-pomeri@outlook.com"><b>akme-pomeri@outlook.com</b></a>
+    </address>
+    <p class="final-footer">
+      Galerija na <a href="https://www.instagram.com/akme_pohistvo/" target="_blank" rel="noopener noreferrer"><b>@akme_pohistvo</b></a>
+    </p>
+  </footer>
+
+  </div>
+
+<script>
+  window.addEventListener('load', () => {
+    const target = 70;
+    const duration = 1400;
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+    function makeAnimator(fill, percentLabel, remainder){
+      return function animate(){
+        let start = null;
+        fill.style.width = '0%';
+        if (remainder) remainder.style.left = '0%';
+        percentLabel.textContent = '0%';
+
+        function tick(timestamp){
+          if (start === null) start = timestamp;
+          const progress = Math.min((timestamp - start) / duration, 1);
+          const value = easeOutCubic(progress) * target;
+          fill.style.width = value + '%';
+          if (remainder) remainder.style.left = value + '%';
+          percentLabel.textContent = Math.round(value) + '%';
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      };
+    }
+
+    const animators = [];
+    const desktopFill = document.getElementById('statusFill');
+    if (desktopFill) animators.push(makeAnimator(desktopFill, document.getElementById('statusPercent')));
+    const mobileFill = document.getElementById('statusFillMobile');
+    if (mobileFill) animators.push(makeAnimator(mobileFill, document.getElementById('statusPercentMobile'), document.getElementById('statusRemainderMobile')));
+
+    function animateAll(){ animators.forEach(fn => fn()); }
+    animateAll();
+    setInterval(animateAll, 30000);
+  });
+</script>
+
+</body>
+</html>
