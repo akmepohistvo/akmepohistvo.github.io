@@ -76,6 +76,7 @@
     --bg:#FBFBFB;
     --black:#161616;
     --green:#18CE77;
+    --orange:#FF9500;
     --grey1:#A5A5A5;
     --grey2:#606060;
     --col:57.5%;
@@ -158,8 +159,8 @@
   .status-bar-fill{
     height:100%;
     width:0%;
-    background:var(--green);
-    box-shadow:0 0 6px 1px rgba(24,206,119,.45);
+    background:var(--orange);
+    box-shadow:0 0 6px 1px rgba(255,149,0,.45);
   }
 
   .cta-button{
@@ -439,7 +440,7 @@
       left:0; top:0;
       height:100%;
       width:0%;
-      background:var(--green);
+      background:var(--orange);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -610,7 +611,7 @@
     <div class="topbar-left">
       <div class="status-row-1">
         <span class="availability-label">Zasedenost:</span>
-        <div class="status-bar" role="img" aria-label="Trenutna zasedenost 40 odstotkov">
+        <div class="status-bar" role="img" aria-label="Trenutna zasedenost 75 odstotkov">
           <div class="status-bar-fill" id="statusFill"></div>
         </div>
         <span class="status-percent" id="statusPercent" aria-hidden="true">0%</span>
@@ -722,7 +723,7 @@
     <div class="hero-wrap">
       <article class="hero">
         <img class="hero-img" src="mizarska-izdelava-pohistvo-po-meri-mobilna.webp" alt="Detajl mizarske izdelave pohištva po meri, AKMĒ delavnica" loading="eager" fetchpriority="high">
-        <div class="status-bar" role="img" aria-label="Trenutna zasedenost 40 odstotkov, čas čakanja manj kot 10 dni">
+        <div class="status-bar" role="img" aria-label="Trenutna zasedenost 75 odstotkov, čas čakanja manj kot 10 dni">
           <div class="status-bar-fill" id="statusFillMobile">
             <span class="status-percent"><span id="statusPercentMobile">0%</span> zasedenost</span>
           </div>
@@ -806,7 +807,7 @@
 
 <script>
   window.addEventListener('load', () => {
-    const target = 40;
+    const target = 75;
     const duration = 1400;
     const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
 
